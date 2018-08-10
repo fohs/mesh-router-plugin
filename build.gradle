@@ -1,0 +1,43 @@
+plugins {
+  id 'java'
+}
+
+group 'com.fohs.mesh'
+version '1.0-SNAPSHOT'
+
+defaultTasks 'jar'
+
+sourceCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+  maven {
+    url 'https://maven.gentics.com/maven2'
+  }
+}
+
+def meshVersion = '0.24.0'
+def lombokVersion = '1.18.2'
+
+dependencies {
+  compileOnly "com.gentics.mesh:mesh-plugin-api:$meshVersion"
+  compileOnly "com.gentics.mesh:mesh-core:$meshVersion"
+  compileOnly "org.projectlombok:lombok:$lombokVersion"
+
+  testCompile group: 'junit', name: 'junit', version: '4.12'
+  testCompile "com.gentics.mesh:mesh-test-common:$meshVersion"
+  testCompile "com.gentics.mesh:mesh-core:$meshVersion"
+}
+
+def classpath = configurations.compile.collect { it.getName() }.join(' ')
+
+jar {
+  manifest {
+    attributes(
+            'Main-Verticle': 'com.fohs.mesh.plugin.routing.MeshRouterPlugin',
+            'Class-Path': classpath
+    )
+  }
+}
+
+jar.dependsOn test

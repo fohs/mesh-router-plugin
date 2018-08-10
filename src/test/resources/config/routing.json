@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "serverPath": "/test",
+      "systemPath": "test"
+    },
+    {
+      "method": "GET",
+      "serverPath": "/app1",
+      "systemPath": "my-spa-app/dist"
+    }
+  ]
+}

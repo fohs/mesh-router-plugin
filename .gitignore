@@ -1,0 +1,14 @@
+/target
+/.config
+/.classpath
+/.settings
+/*.iml
+/.project
+/.vertx
+/mesh.lock
+/plugins
+
+/.gradle
+/.idea
+/build
+/out

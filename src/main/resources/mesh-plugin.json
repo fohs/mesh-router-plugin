@@ -1,0 +1,9 @@
+{
+  "name": "Mesh Routing Plugin",
+  "apiName": "routing",
+  "version": "1.0",
+  "description": "A very basic routing plugin to bind server paths to filesystem paths",
+  "license": "Apache License 2.0",
+  "inception": "10-08-2018",
+  "author": "Jacek Fohs"
+}
